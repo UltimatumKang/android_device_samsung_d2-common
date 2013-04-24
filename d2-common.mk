@@ -64,10 +64,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # Lights
 PRODUCT_PACKAGES += lights.msm8960
 
-# Charging LED property
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.enable-charging-led=0
-
 # Increase the HWUI font cache since we have tons of RAM
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.text_cache_width=2048
@@ -103,7 +99,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
     lpa.decode=true \
     rild.libpath=/system/lib/libril-qc-qmi-1.so \
     ril.subscription.types=NV,RUIM \
-    media.aac_51_output_enabled=true
+    ro.config.svlte1x=true \
+    ro.cdma.subscribe_on_ruim_ready=true \
+    persist.radio.no_wait_for_card=0 \
+    keyguard.no_require_sim=true \
+    media.aac_51_output_enabled=true \
+    persist.rild.nitz_plmn="" \
+    persist.rild.nitz_long_ons_0="" \
+    persist.rild.nitz_long_ons_1="" \
+    persist.rild.nitz_long_ons_2="" \
+    persist.rild.nitz_long_ons_3="" \
+    persist.rild.nitz_short_ons_0="" \
+    persist.rild.nitz_short_ons_1="" \
+    persist.rild.nitz_short_ons_2="" \
+    persist.rild.nitz_short_ons_3=""
 
 # common msm8960
 $(call inherit-product, device/samsung/msm8960-common/msm8960.mk)
